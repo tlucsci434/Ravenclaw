@@ -17,11 +17,14 @@ public class WordGrid
 	private final static int LEFT_TO_RIGHT_DOWN = 0;
 
 	private char[][] wordGrid;
+	private GridSize mySize;
 	
 	public WordGrid(GridSize size) 
 	{
 		
-		switch (size)
+		mySize = size;
+		
+		switch (mySize)
 		{
 		case SMALL:		wordGrid = new char[ROW_SMALL][COLUMN_SMALL];
 						break;
@@ -32,8 +35,19 @@ public class WordGrid
 		}
 	}
 	
+	public GridSize getSize()
+	{
+		return mySize;
+	}
+	
+	public char[][] getGridLetters()
+	{
+		return wordGrid;
+	}
+	
 	public void placeWord(String word)
 	{
+		System.out.println(word);
 		Random generator = new Random();
 		int placement = generator.nextInt(3);
 		

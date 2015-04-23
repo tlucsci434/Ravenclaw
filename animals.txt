@@ -2,9 +2,7 @@ Lion
 Tiger 
 Bear
 Seal
-Leopard
 Rhino
-Elephant
 Goose
 Cat
 Dog
@@ -18,3 +16,5 @@ Flamingo
 Horse
 Shark
 Swordfish
+Leopard
+Elephant

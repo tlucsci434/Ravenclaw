@@ -1,14 +1,5 @@
 Harry
 Ron
-Hermione
-Snape
-Dumbledore
-Hagrid
-Gryffindor
-Hufflepuff
-Ravenclaw
-Slytherin
-Voldemort
 Snitch
 Wand
 Wizard
@@ -18,3 +9,12 @@ Curse
 Hedwig
 Neville
 Muggle
+Hermione
+Snape
+Dumbledore
+Hagrid
+Gryffindor
+Hufflepuff
+Ravenclaw
+Slytherin
+Voldemort

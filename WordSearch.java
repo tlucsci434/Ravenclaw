@@ -4,25 +4,45 @@ import java.io.FileNotFoundException;
 
 public class WordSearch 
 {
+	private static final int SMALL_NUM_WORDS = 5;
+	private static final int MED_NUM_WORDS = 7;
+	private static final int LARGE_NUM_WORDS = 10;
+	
 	private String[] wordList;
 	private String[] foundList;
 	private WordGrid myGrid;
 	private int numWordsFound;
+	private String filename;
+	private int numWords;
 	
-	public WordSearch(GridSize size, int numWords)
+	public WordSearch(GridSize size, String filename)
 	{
 		myGrid = new WordGrid(size);
+		
+		if (size == GridSize.SMALL)
+			numWords = SMALL_NUM_WORDS;
+		else if (size == GridSize.MEDIUM)
+			numWords = MED_NUM_WORDS;
+		else
+			numWords = LARGE_NUM_WORDS;
+		
 		wordList = new String[numWords];
 		foundList = new String[numWords];
+		this.filename = filename;
 		numWordsFound = 0;
 	}
 	
-	public void readWords(String filename)
+	public GridSize getSize()
+	{
+		return myGrid.getSize();
+	}
+	
+	public void readWords()
 	{
 		
 		try (Scanner filescan = new Scanner(new File(filename)))
 		{
-			for (int i = 0; filescan.hasNext(); i++)
+			for (int i = 0; i < numWords && filescan.hasNext(); i++)
 			{
 				wordList[i] = filescan.next().toUpperCase();
 			}
@@ -40,7 +60,6 @@ public class WordSearch
 			myGrid.placeWord(wordList[i]);
 		}
 		
-		System.out.println(myGrid);
 		myGrid.fillGrid();
 	}
 	
@@ -56,28 +75,24 @@ public class WordSearch
 		return word;
 	}
 	
-	public String getWordList()
+	public String[] getWordList()
 	{
-		String list = "";
-		
-		for (int i = 0; i < wordList.length; i++)
-			list += wordList[i] + "\n";
-		
-		return list;
+		return wordList;
 	}
 	
-	public String getFoundList()
+	public String[] getFoundList()
 	{
-		String list = "";
-		
-		for (int i = 0; i < foundList.length; i++)
-			list += foundList[i] + "\n";
-		
-		return list;	}
+		return foundList;
+	} 
 	
 	public int getNumWordsLeft()
 	{
 		return wordList.length - numWordsFound;
+	}
+	
+	public char[][] getGridLetters()
+	{
+		return myGrid.getGridLetters();
 	}
 	
 	private void addToFoundList(String word)
@@ -110,7 +125,10 @@ public class WordSearch
 	
 	public String toString()
 	{
-		String result = "Words To Find: \n" + getWordList();
+		String result = "Words To Find: \n";
+		
+		for (int i = 0; i < wordList.length; i++)
+			result += wordList[i] + "\n";
 		
 		result += "Words Found: \n";
 				

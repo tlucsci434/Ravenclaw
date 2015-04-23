@@ -1,15 +1,14 @@
 Claptrap
 Jack
-Handsome
 Siren
-Eridium
+Slag
+Zed
+Zero
 Physco
 Moxxi
 Scooter
-Hammerlock
 Tina
 Axton
-Zero
 Gunserker
 Bloodwing
 Roland
@@ -17,5 +16,6 @@ Hyperion
 Dahl
 Maliwan
 Jacobs
-Slag
-Zed
+Eridium
+Handsome
+Hammerlock
