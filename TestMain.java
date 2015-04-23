@@ -7,36 +7,36 @@ public class TestMain
 	public static void main(String[] args)
 	{
 		Scanner scanner = new Scanner(System.in);
+		GridSize mySize = GridSize.MEDIUM;
 		int row1;
 		int col1;
 		int row2;
 		int col2;
-		int numWords = 5;
+		String word;
+		int numWords = 6;
 		String filename = "testWords.txt";
 		
-		WordSearch myGame = new WordSearch("medium", numWords);
+		WordSearch myGame = new WordSearch(mySize, numWords);
 		myGame.readWords(filename);
+		myGame.placeWords();
 		
 		do
 		{
-			System.out.println("Words To Find:");
-			System.out.println(myGame.getWordList());
-			myGame.placeWords();
-			System.out.println(myGame + "\n\n");
-		
-			System.out.println("Enter the row or first letter: ");
+			System.out.println(myGame);
+			System.out.println("Enter the row of first letter: ");
 			row1 = scanner.nextInt();
 			
-			System.out.println("Enter the col or first letter: ");
+			System.out.println("Enter the col of first letter: ");
 			col1 = scanner.nextInt();
 	
-			System.out.println("Enter the row or last letter: ");
+			System.out.println("Enter the row of last letter: ");
 			row2 = scanner.nextInt();
 			
-			System.out.println("Enter the col or last letter: ");
+			System.out.println("Enter the col of last letter: ");
 			col2 = scanner.nextInt();
 			
-			myGame.checkWord(row1, col1, row2, col2);
+			word = myGame.checkWord(row1, col1, row2, col2);
+			System.out.println("You found " + word);
 			
 		} while (myGame.getNumWordsLeft() > 0);
 	}
