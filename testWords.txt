@@ -1,5 +1,0 @@
-dog
-fish
-pony
-bear
-lion
